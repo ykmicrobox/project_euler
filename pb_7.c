@@ -11,15 +11,16 @@
 
 int isPrime (int x) {
    int i;
-   int is_prime = true;
-   
-   if ((x > 2) && !(x % 2)){
-      is_prime = false;
+
+   if ((x > 2) && !(x % 2)) {
+      return false;
    }
-   for (i = 3; i <= x / 2 && is_prime; i+=2){
-      is_prime = (x % i) ? true : false;
+   for (i = 3; i <= sqrt(x) + 1; i += 2) {
+      if (!(x % i)) {
+         return false;
+      }
    }
-   return is_prime;
+   return true;
 }
 
 int main (int argc, char** argv) {
